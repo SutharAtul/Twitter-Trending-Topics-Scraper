@@ -12,8 +12,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 # X username and password
-X_USERNAME = "userkyahai"
-X_PASSWORD = "thisismypassword"
+X_USERNAME = "username"
+X_PASSWORD = "password"
 
 # MongoDB setup
 client = pymongo.MongoClient("mongodb://localhost:27017/")
@@ -26,7 +26,7 @@ def get_trending_topics():
     chrome_options.add_argument('--start-maximized')
 
     # Path to ChromeDriver
-    service = Service("D:/Project/Stir_Assignments/chromedriver.exe")
+    service = Service("D:/Project/Stir_Assignments/chromedriver.exe")  // replace with your chromedriver.exe path 
     driver = webdriver.Chrome(service=service, options=chrome_options)
 
     try:
