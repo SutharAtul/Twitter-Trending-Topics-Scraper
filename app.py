@@ -8,7 +8,7 @@ db = client["x_data"]
 collection = db["trending_topics"]
 
 # Absolute path to your templates folder
-absolute_template_path = r"D:\Project\Stir_Assignments\templates"
+absolute_template_path = r"D:\Project\Stir_Assignments\templates"   // give your templates path that contain index.html file 
 
 app = Flask(__name__, template_folder=absolute_template_path)
 
