@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending Topics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #f1f1f1;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Trending Topics</h1>
+    <ul id="trending-topics">
+        <!-- Trending topics will be injected here -->
+    </ul>
+</div>
+<script>
+    async function fetchTrendingTopics() {
+        try {
+            const response = await fetch('http://127.0.0.1:5000/api/trending'); // Replace with your API endpoint
+            const data = await response.json();
+            const list = document.getElementById('trending-topics');
+            data.trending_topics.forEach(topic => {
+                const li = document.createElement('li');
+                li.textContent = topic;
+                list.appendChild(li);
+            });
+        } catch (error) {
+            console.error('Error fetching trending topics:', error);
+        }
+    }
+
+    fetchTrendingTopics();
+</script>
+</body>
+</html>
